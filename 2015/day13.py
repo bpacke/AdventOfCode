@@ -25,4 +25,6 @@ for s in seating_plans:
     seating_plans_and_scores.append((s, score))
 
 seating_plans_and_scores.sort(key=lambda s: s[-1], reverse=True)
-print(f'With a happiness score of {seating_plans_and_scores[0][1]}, the best seating plan is {seating_plans_and_scores[0][0]}')
+max_score = max([s for _, s in seating_plans_and_scores])
+best_seating_plans = [p for p, s in seating_plans_and_scores if s == max_score]
+print(f'Best score: {max_score}\nThere are {len(best_seating_plans)} plans with that score.')
