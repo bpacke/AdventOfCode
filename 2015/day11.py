@@ -1,7 +1,7 @@
 import string, textwrap
 puzzle_input = 'hxbxwxba'
 
-def string_split(string):
+def string_chunker(string):
     arr = []
     current_char = string[0]
     count = 0
@@ -18,17 +18,12 @@ def string_split(string):
         arr.append(a)
     return arr
 
-def password_iterator(password):
-    alphabet = list(string.ascii_lowercase)
-    valid_alpha = alphabet
-    valid_alpha.remove('i')
-    valid_alpha.remove('o')
-    valid_alpha.remove('l')
-    print(valid_alpha)
-    # chr_range = [ord(a) for a in alphabet]
-    # c_tmp = ascii_password[0] + 1
-    # c = c_tmp if c_tmp < chr_range[-1] else char_range[0]
-    # print(chr(c))
+def password_iterator(string):
+    if len(string) == 0: return 'a'
+    if ord(string[-1]) < 122:
+        return string[:-1] + chr(ord(string[-1]) + 1)
+    elif ord(string[-1]) == 122:
+        return password_iterator(string[:-1]) + 'a'
 
 def password_validator(password):
     # Passwords must include one increasing straight of at least three letters, 
@@ -46,7 +41,17 @@ def password_validator(password):
 
     # Passwords must contain at least two different, non-overlapping pairs of 
     # letters, like aa, bb, or zz.
-    chunks = [len(s) for s in string_split(password)]
+    chunks = [len(s) for s in string_chunker(password)]
     test_3 = chunks.count(2) >= 2
 
     return test_1 and test_2 and test_3
+
+while not password_validator(puzzle_input):
+    puzzle_input = password_iterator(puzzle_input)
+print(f'Task 1 Password: {puzzle_input}')
+
+puzzle_input = password_iterator(puzzle_input)
+
+while not password_validator(puzzle_input):
+    puzzle_input = password_iterator(puzzle_input)
+print(f'Task 2 Password: {puzzle_input}')
