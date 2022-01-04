@@ -13,7 +13,7 @@ with open('2015/data/input/day05.txt', 'r') as file:
 nice = [s for s, n in strings if n is True]
 naughty = [s for s, n in strings if n is False]
 
-print(f'There are {len(nice)} strings and {len(naughty)} naughty strings')
+print(f'TASK 1   -   There are {len(nice)} nice strings and {len(naughty)} naughty strings')
 
 strings = [s for s, _ in strings]
 strings_new = []
@@ -31,4 +31,4 @@ for s in strings:
 nice_new = [s for s, n in strings_new if n is True]
 naughty_new = [s for s, n in strings_new if n is False]
 
-print(f'There are {len(nice_new)} strings and {len(naughty_new)} naughty strings')
+print(f'Task 2   -   There are {len(nice_new)} nice strings and {len(naughty_new)} naughty strings')
