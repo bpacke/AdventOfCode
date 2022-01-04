@@ -1,3 +1,10 @@
+# Private and macOS stuff
+*emil*
+*ipynb*
+scratchpad.py
+.DS_Store
+check/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
