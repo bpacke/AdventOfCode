@@ -23,7 +23,6 @@ presents = []
 
 with open('2015/data/input/day02.txt', 'r') as file:
     for line in file:
-        # print(f'line = {line}')
         presents.append(Present(line))
 
 total_paper_needed = sum([p.paper_needed for p in presents])
