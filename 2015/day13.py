@@ -1,7 +1,6 @@
 from itertools import permutations
 
 task_1 = False
-
 input_file = '2015/data/input/day13.txt' if task_1 else '2015/data/input/day13me.txt'
 
 seating_plans = []
@@ -13,9 +12,7 @@ with open(input_file, 'r') as file:
         l = line.strip().split(' ')
         attendees.add(l[0])
         pair = (l[0], l[-1][:-1])
-        # print(pair)
         score = int(l[3]) if l[2] == 'gain' else -int(l[3])
-        # print(score)
         pairings[pair] = score
 
 seating_plans = [list(p) for p in permutations(attendees, len(attendees))]
@@ -28,6 +25,4 @@ for s in seating_plans:
     seating_plans_and_scores.append((s, score))
 
 seating_plans_and_scores.sort(key=lambda s: s[-1], reverse=True)
-print(seating_plans_and_scores[0])
-# for p, s in seating_plans_and_scores:
-#     print(f'{p}   -   {s}')
+print(f'With a happiness score of {seating_plans_and_scores[0][1]}, the best seating plan is {seating_plans_and_scores[0][0]}')
