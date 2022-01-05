@@ -27,11 +27,10 @@ while True:
                 completed_circuit.append(step)
                 print(f'Completed step: {step}')
             except Exception:
-                pass
+                print('Exception')
         else:
             pass #step already happened
     if len(completed_circuit) == len(circut): break
         
-
-for i in signals.items():
-    print(i)
+a = signals['a']
+print(f'Task One: Singal \'a\' = {a}')
