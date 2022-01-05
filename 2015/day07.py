@@ -27,7 +27,7 @@ while True:
                 completed_circuit.append(step)
                 print(f'Completed step: {step}')
             except Exception:
-                print('Exception')
+                pass
         else:
             pass #step already happened
     if len(completed_circuit) == len(circut): break
