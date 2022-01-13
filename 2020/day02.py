@@ -1,7 +1,9 @@
 from collections import Counter
 from re import findall
+
 task_1_passwords = []
 task_2_passwords = []
+
 with open('2020/data/input/day02.txt') as file:
     for line in file:
         line = line.strip()
@@ -18,6 +20,5 @@ with open('2020/data/input/day02.txt') as file:
             task_2_passwords.append(password)
 
 print(f'Task One: {len(task_1_passwords)}')
-
 print(f'Task Two: {len(task_2_passwords)}')
 
