@@ -1,7 +1,5 @@
 from collections import Counter
 
-from soupsieve import match
-
 groups = []
 
 with open('2020/data/input/day06.txt') as file:
