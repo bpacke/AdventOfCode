@@ -1,5 +1,4 @@
 from collections import Counter
-from collections import Counter
 
 def read_puzzle_input(filename):
     with open(filename) as file:
