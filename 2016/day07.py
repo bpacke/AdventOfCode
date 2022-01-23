@@ -5,9 +5,9 @@ def read_puzzle_input(filename):
     with open(filename) as file:
         for line in file:
             line = line.strip().replace('[', ' [').replace(']', '] ').split()
-            non_hypernets = [x for x in line if '[' not in x]
+            supernets = [x for x in line if '[' not in x]
             hypernets = [x[1:-1] for x in line if '[' in x]
-            ipv7_addresses.append((non_hypernets, hypernets))
+            ipv7_addresses.append((supernets, hypernets))
     return ipv7_addresses
 
 def does_contain_ABBA(in_string):
@@ -18,9 +18,9 @@ def does_contain_ABBA(in_string):
     return False
 
 def ipv7_supports_TLS(ipv7):
-    non_hypernets = [does_contain_ABBA(ip) for ip in ipv7[0]]
+    supernets = [does_contain_ABBA(ip) for ip in ipv7[0]]
     hypernets = [does_contain_ABBA(ip) for ip in ipv7[1]]
-    return any(non_hypernets) and not any(hypernets)
+    return any(supernets) and not any(hypernets)
 
 def task_one(puzzle_input):
     supports_TLS = []
@@ -31,7 +31,7 @@ def task_one(puzzle_input):
 
 def task_two(puzzle_input):
     return []
-    
+
 if __name__ == '__main__':
     puzzle_input = read_puzzle_input('2016/data/input/day07.txt')
     t1 = task_one(puzzle_input)
